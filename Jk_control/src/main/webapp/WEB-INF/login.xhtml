@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<body>
+	
+		<p:messages id="msg"> 
+			<p:autoUpdate /> 
+		</p:messages>
+		
+		<!-- FORM -->
+		<h:form enctype="multipart/form-data">
+			<p:card style="width: 25em; margin: 1em auto">
+				<f:facet name="title">
+	        Login
+	    </f:facet>
+
+				<div class="ui-fluid">
+
+					<div class="p-field">
+						<label for="e-mail">E-mail</label>
+						<p:inputText
+							id="e-mail" 
+							type="text"
+							value="#{userBean.user.email}" 
+							required="true"
+							requiredMessage="O e-mail é obrigatório"
+						>
+						</p:inputText>
+					</div>
+					<div class="p-field">
+						<label for="password">Password</label>
+						<p:password
+							id="password" 
+							value="#{userBean.user.password}"
+							required="true"
+							requiredMessage="A senha é obrigatória"
+						>
+						</p:password>
+					</div>
+					
+				</div>
+
+
+				<f:facet name="footer">
+					<p:commandButton icon="pi pi-check" value="Login"
+						action="#{userBean.login()}" />
+						
+					<p:commandLink
+						icon="pi pi-user-plus" 
+						value="Create Account"
+						style="margin-left: .5em"
+						action="user_new.xhtml"
+					/>
+				</f:facet>
+			</p:card>
+		</h:form>
+		
+</body>
+
+
+</html>
